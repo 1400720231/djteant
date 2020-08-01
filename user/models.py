@@ -26,3 +26,9 @@ class Purchase(TenantModel):
     store = models.ForeignKey(Store, on_delete=models.PROTECT)
     tenant_id = 'store_id'
     product_purchased = TenantForeignKey(Product, on_delete=models.PROTECT)
+
+
+class Prodetail(TenantModel):
+    tenant_id = 'product_id'
+    product = models.ForeignKey(Product, on_delete=models.PROTECT)
+    name = models.CharField(max_length=50)
